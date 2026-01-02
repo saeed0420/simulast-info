@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for SEO - SAFE VERSION -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO SAFE: informational page -->
+    <meta name="description" content="Information portal for Simulast Network Simulation Platform - Computer networks, telecommunications, and research projects simulation tools">
+    <meta name="keywords" content="Simulast information, network simulation platform, telecommunications simulation, computer networks projects, NS-3, OMNeT++, MATLAB simulation">
+    
+    <: canonical URL>
+    <link rel="canonical" href="https://simulast.com">
+    
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Simulast Information | Network Simulation Platform">
+    <meta property="og:description" content="Information about Simulast network simulation platform for academic and industrial projects">
+    <meta property="og:image" content="https://simulast.com/images/og-image.jpg">
+    <meta property="og:url" content="https://simulast.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Simulast Information Portal | Network & Telecom Simulation Platform</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://simulast.com/favicon.ico">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Warning Banner */
+        .warning-banner {
+            background: linear-gradient(90deg, #fef3c7, #fde68a);
+            border-bottom: 2px solid #f59e0b;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+        
+        .warning-banner p {
+            color: #92400e;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .warning-banner a {
+            color: #1d4ed8;
+            font-weight: bold;
+            text-decoration: underline;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 60px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        .logo-icon {
+            background: white;
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links .primary-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+            padding: 4rem 2rem 5rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary);
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-link {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            background: rgba(37, 99, 235, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project-header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .project-header h3 {
+            font-size: 1.3rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Use Cases */
+        .use-cases {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .case-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .case-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .case-icon {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-method {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .warning-banner p {
+                font-size: 0.9rem;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Warning Banner -->
+    <div class="warning-banner">
+        <p>
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Information Portal:</strong> This page provides information about Simulast. 
+            For the main simulation platform, visit: 
+            <a href="https://simulast.com" target="_blank">simulast.com</a>
+        </p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Simulast Info</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://simulast.com" class="primary-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Main Platform
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Simulast Information Portal</h1>
+            <p class="hero-subtitle">
+                Your gateway to information about the Simulast Network Simulation Platform. 
+                Learn about our tools for <a href="https://simulast.com/category/ns3/simulator" style="color: var(--primary);">computer networks</a>, 
+                <a href="https://simulast.com/category/matlab/simulator" style="color: var(--primary);">telecommunications</a>, and research simulations.
+            </p>
+            <a href="https://simulast.com" class="platform-link" target="_blank">
+                <i class="fas fa-rocket"></i> Access Main Simulation Platform
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Features Section with Links to Simulast Categories -->
+        <section id="features">
+            <h2>Platform Features & Capabilities</h2>
+            <p class="section-subtitle">
+                Explore the main features of the Simulast platform. Click on any feature to learn more on our main website.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card animate">
+                    <a href="https://simulast.com/category/ns3/simulator" class="feature-link" target="_blank">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Network Simulation</h3>
+                    <p>Comprehensive tools for <a href="https://simulast.com/category/ns3/simulator" style="color: var(--primary);">NS-3</a> and <a href="https://simulast.com/category/omnet/simulator" style="color: var(--primary);">OMNeT++</a> simulations. Create complex network topologies, analyze protocols, and evaluate performance metrics.</p>
+                </div>
+                
+                <div class="feature-card animate">
+                    <a href="https://simulast.com/category/matlab/simulator" class="feature-link" target="_blank">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="feature-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h3>Telecommunications</h3>
+                    <p>Advanced modeling of <a href="https://simulast.com/category/matlab/simulator" style="color: var(--primary);">5G networks</a>, wireless communications, IoT systems, and signal processing using MATLAB/Simulink.</p>
+                </div>
+                
+                <div class="feature-card animate">
+                    <a href="https://simulast.com/category/projects" class="feature-link" target="_blank">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Projects</h3>
+                    <p>Support for <a href="https://simulast.com/category/projects" style="color: var(--primary);">student projects</a>, thesis work, and academic research in computer networks and telecommunications.</p>
+                </div>
+                
+                <div class="feature-card animate">
+                    <a href="https://simulast.com/category/industrial" class="feature-link" target="_blank">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="feature-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industrial Solutions</h3>
+                    <p>Enterprise-grade simulations for <a href="https://simulast.com/category/industrial" style="color: var(--primary);">telecom operators</a>, network vendors, and infrastructure planning.</p>
+                </div>
+                
+                <div class="feature-card animate">
+                    <a href="https://simulast.com/category/research" class="feature-link" target="_blank">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Research & Development</h3>
+                    <p>Tools for cutting-edge research in <a href="https://simulast.com/category/research" style="color: var(--primary);">network protocols</a>, AI/ML in networking, and performance optimization.</p>
+                </div>
+                
+                <div class="feature-card animate">
+                    <a href="https://simulast.com/category/tools" class="feature-link" target="_blank">
+                        Learn more <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Simulation Tools</h3>
+                    <p>Integration with <a href="https://simulast.com/category/tools" style="color: var(--primary);">industry-standard tools</a> including Mininet, Cisco Packet Tracer, and CloudSim.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Projects Section -->
+        <section id="projects">
+            <h2>Sample Projects on Simulast</h2>
+            <p class="section-subtitle">
+                Explore real projects created with Simulast platform. Visit our main site for complete details and source code.
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <h3><i class="fas fa-wifi"></i> Wireless Sensor Network Simulation</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">NS-3</span>
+                            <span class="project-tag">Wireless</span>
+                            <span class="project-tag">IoT</span>
+                        </div>
+                        <p>Complete simulation of a wireless sensor network with energy-efficient routing protocols and performance analysis.</p>
+                        <a href="https://simulast.com/wireless-sensor-network-simulation" class="project-link" target="_blank">
+                            View Project Details <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <h3><i class="fas fa-5"></i> 5G Network Performance Analysis</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">MATLAB</span>
+                            <span class="project-tag">5G</span>
+                            <span class="project-tag">Telecom</span>
+                        </div>
+                        <p>Comprehensive analysis of 5G network performance under different traffic loads and interference conditions.</p>
+                        <a href="https://simulast.com/5g-network-performance-analysis" class="project-link" target="_blank">
+                            View Project Details <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <h3><i class="fas fa-shield-alt"></i> Network Security Simulation</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">OMNeT++</span>
+                            <span class="project-tag">Firewall</span>
+                        </div>
+                        <p>Simulation of various network attacks and evaluation of different firewall and intrusion detection configurations.</p>
+                        <a href="https://simulast.com/network-security-simulation" class="project-link" target="_blank">
+                            View Project Details <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <h3><i class="fas fa-cloud"></i> SDN/OpenFlow Implementation</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Mininet</span>
+                            <span class="project-tag">SDN</span>
+                            <span class="project-tag">OpenFlow</span>
+                        </div>
+                        <p>Software Defined Networking implementation with custom controller and flow management algorithms.</p>
+                        <a href="https://simulast.com/sdn-openflow-implementation" class="project-link" target="_blank">
+                            View Project Details <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <h3><i class="fas fa-broadcast-tower"></i> LTE-A Network Planning</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">LTE</span>
+                            <span class="project-tag">Planning</span>
+                            <span class="project-tag">Optimization</span>
+                        </div>
+                        <p>Network planning and optimization for LTE-Advanced networks with capacity and coverage analysis.</p>
+                        <a href="https://simulast.com/lte-network-planning" class="project-link" target="_blank">
+                            View Project Details <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate">
+                    <div class="project-header">
+                        <h3><i class="fas fa-robot"></i> AI-Based Network Management</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">AI/ML</span>
+                            <span class="project-tag">Optimization</span>
+                            <span class="project-tag">Research</span>
+                        </div>
+                        <p>Machine learning algorithms for intelligent network management, traffic prediction, and anomaly detection.</p>
+                        <a href="https://simulast.com/ai-network-management" class="project-link" target="_blank">
+                            View Project Details <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2>Resources & Documentation</h2>
+            <p class="section-subtitle">
+                Access comprehensive resources on our main platform and community sites.
+            </p>
+            
+            <div class="use-cases">
+                <div class="case-list">
+                    <div class="case-item">
+                        <div class="case-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div>
+                            <h4><a href="https://simulast.com/category/articles" target="_blank">Documentation</a></h4>
+                            <p>Complete documentation, installation guides, and API references for all simulation tools.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-item">
+                        <div class="case-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div>
+                            <h4><a href="https://simulast.com/category/ns3/simulator/videos" target="_blank">Tutorials & Videos</a></h4>
+                            <p>Step-by-step video tutorials for NS-3, OMNeT++, MATLAB, and other simulation tools.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-item">
+                        <div class="case-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h4><a href="https://simulast.com/category/matlab/simulator/projects" target="_blank">Example Projects</a></h4>
+                            <p>Complete example projects with source code for various network simulation scenarios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-item">
+                        <div class="case-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div>
+                            <h4><a href="https://netsimulate.net/" target="_blank">Blog & Articles</a></h4>
+                            <p>Technical articles, research summaries, and industry insights on network simulation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-item">
+                        <div class="case-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4><a href="https://netsimulate.net/forum/" target="_blank">Community Forum</a></h4>
+                            <p>Join discussions, ask questions, and share knowledge with the simulation community.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-item">
+                        <div class="case-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div>
+                            <h4><a href="https://simulast.com/download" target="_blank">Download Tools</a></h4>
+                            <p>Download simulation tools, scripts, and templates for your projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact & Support</h2>
+            <p class="section-subtitle">
+                Get in touch with the Simulast team for support, questions, or collaboration.
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-method animate">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email Support</h4>
+                        <p><a href="mailto:simulastcom@gmail.com">simulastcom@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method animate">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Telegram Support</h4>
+                        <p><a href="https://t.me/site_helper" target="_blank">@site_helper</a></p>
+                        <p><a href="https://t.me/noavarangermi_ir" target="_blank">@noavarangermi_ir</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method animate">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/989194751295" target="_blank">+98 919 475 1295</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method animate">
+                    <div class="contact-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Online Support</h4>
+                        <p>Live chat support available on <a href="https://simulast.com" target="_blank">simulast.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-method animate">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p>Iran, Ardabil</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method animate">
+                    <div class="contact-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Technical Support</h4>
+                        <p>For technical issues, visit our <a href="https://simulast.com/support" target="_blank">support page</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Start Your Simulation Project?</h2>
+            <p style="max-width: 700px; margin: 1rem auto 2rem; font-size: 1.2rem;">
+                This information portal provides details about Simulast. To access the actual simulation tools and start your projects:
+            </p>
+            <a href="https://simulast.com" class="platform-link" target="_blank" style="background: white; color: var(--primary); font-size: 1.3rem; padding: 1rem 2.5rem;">
+                <i class="fas fa-external-link-alt"></i> Go to Main Simulation Platform
+            </a>
+            <p style="margin-top: 2rem; font-size: 1rem;">
+                <i class="fas fa-link"></i> Primary Platform URL: <strong>https://simulast.com</strong>
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Simulast Info</h3>
+                <p>Information portal for Simulast Network Simulation Platform. For the main application, visit our primary website.</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <a href="https://github.com/simulast" style="color: white; font-size: 1.3rem;" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/site_helper" style="color: white; font-size: 1.3rem;" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/989194751295" style="color: white; font-size: 1.3rem;" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="https://simulast.com/category/ns3/simulator" target="_blank"><i class="fas fa-arrow-right"></i> NS-3 Simulations</a></li>
+                    <li><a href="https://simulast.com/category/matlab/simulator" target="_blank"><i class="fas fa-arrow-right"></i> MATLAB Projects</a></li>
+                    <li><a href="https://simulast.com/category/omnet/simulator" target="_blank"><i class="fas fa-arrow-right"></i> OMNeT++ Tools</a></li>
+                    <li><a href="https://simulast.com/category/projects" target="_blank"><i class="fas fa-arrow-right"></i> Student Projects</a></li>
+                    <li><a href="https://simulast.com/category/research" target="_blank"><i class="fas fa-arrow-right"></i> Research</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="https://simulast.com/category/articles" target="_blank"><i class="fas fa-book"></i> Documentation</a></li>
+                    <li><a href="https://simulast.com/category/ns3/simulator/videos" target="_blank"><i class="fas fa-video"></i> Tutorials</a></li>
+                    <li><a href="https://simulast.com/category/matlab/simulator/projects" target="_blank"><i class="fas fa-code"></i> Example Projects</a></li>
+                    <li><a href="https://netsimulate.net/" target="_blank"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="https://netsimulate.net/forum/" target="_blank"><i class="fas fa-users"></i> Community Forum</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Platform Access</h3>
+                <ul class="footer-links">
+                    <li><a href="https://simulast.com/login" target="_blank"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="https://simulast.com/register" target="_blank"><i class="fas fa-user-plus"></i> Register</a></li>
+                    <li><a href="https://simulast.com/download" target="_blank"><i class="fas fa-download"></i> Download</a></li>
+                    <li><a href="https://simulast.com/pricing" target="_blank"><i class="fas fa-tag"></i> Pricing</a></li>
+                    <li><a href="https://simulast.com/contact" target="_blank"><i class="fas fa-envelope"></i> Contact Form</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 Simulast Information Portal. The main simulation platform is available at <a href="https://simulast.com" style="color: #94a3b8;">simulast.com</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                <i class="fas fa-map-marker-alt"></i> Iran, Ardabil | 
+                <i class="fas fa-info-circle"></i> This is an informational page. For platform access and support, visit the main website.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 140,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(window.innerWidth <= 768) {
+                        document.querySelector('.nav-links').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate elements
+        document.querySelectorAll('.animate').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Update year in copyright
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('.copyright p');
+            if(yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2024', new Date().getFullYear());
+            }
+        });
+
+        // External link tracking
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            if(!link.href.includes('github.io')) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    </script>
+</body>
+</html>
