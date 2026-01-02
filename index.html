@@ -60,25 +60,120 @@
             overflow-x: hidden;
         }
         
-        /* Warning Banner */
+        /* Warning Banner - Updated */
         .warning-banner {
-            background: linear-gradient(90deg, #fef3c7, #fde68a);
+            background: linear-gradient(90deg, #fffbeb, #fef3c7);
             border-bottom: 2px solid #f59e0b;
-            padding: 1rem 0;
-            text-align: center;
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            z-index: 1001;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .warning-banner.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            border: none;
+            overflow: hidden;
+        }
+        
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .banner-icon {
+            color: #d97706;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
         
         .warning-banner p {
             color: #92400e;
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+        
+        .warning-banner a {
+            color: #1d4ed8;
+            font-weight: bold;
+            text-decoration: underline;
+            white-space: nowrap;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: #92400e;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        
+        .close-btn:hover {
+            background-color: rgba(146, 64, 14, 0.1);
+        }
+        
+        /* Auto-hide on scroll */
+        .warning-banner.scrolled-up {
+            transform: translateY(-100%);
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .warning-banner {
+                padding: 8px 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+            }
+            
+            .banner-content {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .warning-banner p {
+                font-size: 0.85rem;
+                flex-basis: calc(100% - 60px);
+            }
+            
+            .close-btn {
+                position: absolute;
+                top: 8px;
+                right: 15px;
+            }
+            
+            /* Adjust header position for mobile when banner is present */
+            header {
+                margin-top: 48px;
+            }
+            
+            .warning-banner.hidden + header {
+                margin-top: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .warning-banner p {
+                font-size: 0.8rem;
+                padding-right: 25px;
+            }
+            
+            .warning-banner a {
+                white-space: normal;
+                display: inline;
+            }
         }
         
         .warning-banner a {
@@ -97,9 +192,14 @@
             color: white;
             padding: 1.5rem 0;
             position: sticky;
-            top: 60px;
-            z-index: 1000;
+            top: 0;
+            z-index: 999;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /*   When the banner is open  */
+        .warning-banner:not(.hidden) + header {
+            top: 50px;
         }
         
         .nav-container {
@@ -548,14 +648,22 @@
     </style>
 </head>
 <body>
-    <!-- Warning Banner -->
-    <div class="warning-banner">
-        <p>
-            <i class="fas fa-exclamation-triangle"></i>
-            <strong>Information Portal:</strong> This page provides information about Simulast. 
-            For the main simulation platform, visit: 
-            <a href="https://simulast.com" target="_blank">simulast.com</a>
-        </p>
+    <!-- Warning Banner - Updated with close button and auto-hide -->
+    <div class="warning-banner" id="infoBanner">
+        <div class="container">
+            <div class="banner-content">
+                <span class="banner-icon">
+                    <i class="fas fa-info-circle"></i>
+                </span>
+                <p>
+                    This is an information page about Simulast. For the main simulation platform, visit: 
+                    <a href="https://simulast.com" target="_blank">simulast.com</a>
+                </p>
+                <button class="close-btn" id="closeBanner" aria-label="Close banner">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- Header -->
@@ -1054,19 +1162,100 @@
             observer.observe(element);
         });
 
-        // Update year in copyright
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearElement = document.querySelector('.copyright p');
-            if(yearElement) {
-                yearElement.innerHTML = yearElement.innerHTML.replace('2024', new Date().getFullYear());
-            }
-        });
-
         // External link tracking
         document.querySelectorAll('a[href^="http"]').forEach(link => {
             if(!link.href.includes('github.io')) {
                 link.setAttribute('target', '_blank');
                 link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+
+        // ==================== NEW BANNER CODE ====================
+        // Banner functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('infoBanner');
+            const closeBtn = document.getElementById('closeBanner');
+            let lastScrollTop = 0;
+            let isBannerHidden = false;
+
+            // Close button functionality
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    banner.classList.add('hidden');
+                    isBannerHidden = true;
+                    // Save preference in localStorage
+                    localStorage.setItem('simulastBannerClosed', 'true');
+                    
+                    // Adjust header margin for mobile
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('header').style.marginTop = '0';
+                    }
+                });
+            }
+
+            // Check if user previously closed the banner
+            if (localStorage.getItem('simulastBannerClosed') === 'true') {
+                banner.classList.add('hidden');
+                isBannerHidden = true;
+            }
+
+            // Auto-hide on scroll down, show on scroll up
+            window.addEventListener('scroll', function() {
+                if (isBannerHidden) return;
+                
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    banner.classList.add('scrolled-up');
+                } else {
+                    // Scrolling up
+                    banner.classList.remove('scrolled-up');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, false);
+
+            // Touch swipe to close on mobile
+            let touchStartY = 0;
+            let touchEndY = 0;
+            
+            banner.addEventListener('touchstart', function(e) {
+                touchStartY = e.changedTouches[0].screenY;
+            }, false);
+
+            banner.addEventListener('touchend', function(e) {
+                touchEndY = e.changedTouches[0].screenY;
+                // Swipe up to close
+                if (touchStartY - touchEndY > 50) {
+                    banner.classList.add('hidden');
+                    isBannerHidden = true;
+                    localStorage.setItem('simulastBannerClosed', 'true');
+                    
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('header').style.marginTop = '0';
+                    }
+                }
+            }, false);
+
+            // Show banner again if scrolled to top
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset === 0 && !isBannerHidden) {
+                    banner.classList.remove('scrolled-up');
+                }
+            });
+
+            // Adjust on resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && !isBannerHidden) {
+                    banner.classList.remove('scrolled-up');
+                }
+            });
+
+            // Update year in copyright
+            const yearElement = document.querySelector('.copyright p');
+            if(yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2024', new Date().getFullYear());
             }
         });
     </script>
